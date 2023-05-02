@@ -16,7 +16,7 @@
 
 # This script assumes that the VPC and proxy-subnet already exist prior to execution
 
-# Subnet for Service Attachment
+# New Subnet for Service Attachment
 resource "google_compute_subnetwork" "psc-nat-svc-attachment-subnet" {
   name          = "psc-nat-svc-attachament-subnet"
   ip_cidr_range = var.subnet-psc-attachment
@@ -44,7 +44,7 @@ resource "google_compute_network_endpoint" "endpoint" {
   zone                   = var.zone
 }
 
-# # TCP Proxy ILB
+# TCP Proxy ILB
 
 resource "google_compute_region_health_check" "health_check" {
   name               = "lb-tcp-proxy-hc-80"
